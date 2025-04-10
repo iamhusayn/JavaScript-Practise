@@ -27,11 +27,15 @@
     </div>
 
     <script>
+      /*LogicError - (The game plays fine but keeps repeating the same random number) - Math.floor(Math.random()) + 1 generates a random number between 0 and 1, not between 1 and 100 and Math.floor round-up to the nearest whole number. By multiplying the random number by 100, we can get a number between 1 and 100.*/
       let randomNumber = Math.floor(Math.random() * 100) + 1;
 
       const guesses = document.querySelector(".guesses");
       const lastResult = document.querySelector(".lastResult");
+
+      // /*SyntaxError - (TypeError: can't access property "textContent", lowOrHi is null OR Cannot set properties of null (setting 'textContent')) - The CSS selector is not matching any elements in the DOM. The correct selector is . for a class, # for an ID, and . for an element.*/
       const lowOrHi = document.querySelector(".lowOrHi");
+
       const guessSubmit = document.querySelector(".guessSubmit");
       const guessField = document.querySelector(".guessField");
 
@@ -45,6 +49,7 @@
         }
         guesses.textContent += userGuess + " ";
 
+        /*LogicError - (The game says you've won, regardless of the guess you enter) - This occurs because the "if (userGuess === randomNumber)" was written as "if (userGuess = randomNumber)" therefore, the test always return "true" and the game always says "won". */
         if (userGuess === randomNumber) {
           lastResult.textContent = "Congratulations! You got it right!";
           lastResult.style.backgroundColor = "green";
@@ -67,6 +72,8 @@
         guessField.value = "";
         guessField.focus();
       }
+
+      /*SyntaxError (TypeError: guessSubmit.addeventListener is not a function) This means there was an error in the spelling- addeventListener should be addEventListener*/
       guessSubmit.addEventListener("click", checkGuess);
 
       function setGameOver() {
