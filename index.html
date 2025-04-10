@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>JavaScript Pratcise</h1>
-        <script src="main.js"></script>
-</body>
+  </head>
+  <body>
+    <button id="button_A">Press me</button>
+    <h3 id="heading_A"></h3>
+
+    <script>
+      const buttonA = document.querySelector("#button_A");
+      const headingA = document.querySelector("#heading_A");
+
+      let count = 1;
+
+      buttonA.onclick = () => {
+        buttonA.textContent = "Click again!";
+        headingA.textContent = `You clicked ${count} time(s)`;
+        count += 1;
+      };
+    </script>
+  </body>
 </html>
