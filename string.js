@@ -60,23 +60,6 @@ const classesA = `header ${
 const person = "Husayn";
 const age = 16;
 
-function introMessage(strings, persongExp, ageExp) {
-  const str0 = strings[0]; // "Hello, "
-  const str1 = strings[1]; // "my name is "
-  const str2 = strings[2]; // " and I am "
-  const str3 = strings[3]; // " years old."
-
-  const ageStr = ageExp < 18 ? "Teenage" : "Adult";
-
-  // return `${str0}, ${str1} ${persongExp} ${str2}${ageExp} ${str3}`;
-}
-
-const output = introMessage`Hello, my name is ${person} and I am ${age} years old.`;
-console.log(output);
-
-const person = "Husayn";
-const age = 16;
-
 function introMessage(strings, personExp, ageExp) {
   const str0 = strings[0]; // "Hello, "
   const str1 = strings[1]; // "my name is "
@@ -84,9 +67,59 @@ function introMessage(strings, personExp, ageExp) {
 
   const ageStr = ageExp < 18 ? "a Teenage" : "an Adult";
 
-  return `${str0}, ${str1}${personExp}${str2}${ageStr}`; // wrong expression
+  // return `${str0}, ${str1}${personExp}${str2}${ageStr}`; // wrong expression
   return `${str0}${personExp}${str1}${ageStr}${str2}`; // Correct expression
 }
 const introduction = introMessage`Hello, my name is ${person}, and I am ${age}.`;
 
 console.log(introduction);
+
+// String conversion
+const myString = "123";
+const myNum = Number(myString); //Converting from string to number
+console.log(typeof myNum);
+
+const newNum = 253;
+const lump = String(newNum); //Converting from number to string
+console.log(typeof lump);
+
+//String Methods
+//To find a substring (eg. "Mozilla" to find "Moz")
+const browserType = "mozilla";
+const contain = browserType.includes("moz")
+  ? "Yes, moz is present"
+  : "No, moz is not present";
+console.log(contain);
+// OR
+const browserTypeA = "mozilla";
+
+if (browserTypeA.includes("moz")) {
+  console.log("Yes, moz is present");
+} else {
+}
+
+//StartsWith or EndsWith
+const browserTypeB = "mozilla";
+
+if (browserTypeB.startsWith("Z")) {
+  console.log("Yes, starts with z!");
+} else {
+  console.log("No, does not start with z!");
+}
+//EndsWith
+const browserTypeC = "mozilla";
+
+if (browserTypeC.endsWith("a")) {
+  console.log("Yes, ends with a!");
+} else {
+  console.log("No, does not end with a!");
+}
+
+//To find the position of a substring in a string
+const tagline = "MDN - Resources for developers, by developers";
+
+const firstOccurrence = tagline.indexOf("developers");
+const secondOccurrence = tagline.indexOf("developers", firstOccurrence + 1);
+
+console.log(firstOccurrence);
+console.log(secondOccurrence);
