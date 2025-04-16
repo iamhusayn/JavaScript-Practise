@@ -123,3 +123,102 @@ const secondOccurrence = tagline.indexOf("developers", firstOccurrence + 1);
 
 console.log(firstOccurrence);
 console.log(secondOccurrence);
+
+//Extracting a substring from a string
+const taglineA = "MDN - Resources for developers, by developers";
+const firstOccurrenceA = tagline.slice(20, 30); //slice(start, end)
+console.log(firstOccurrenceA); //developers
+
+const taglineX = "MDN - Resources for developers, by developers";
+const firstOccurrenceX = tagline.slice(20); //To count from the 20th index to the end
+console.log(firstOccurrence); //developers, by developers
+
+//Changing string cases
+const radData = "My NaMe Is MuD";
+console.log(radData.toLowerCase());
+console.log(radData.toUpperCase());
+
+//Updating parts of a string or To change the case of the first character of a string
+const browserTypeZ = "mozilla";
+const updated = browserTypeZ.replace("moz", "van"); //to replace "moz" with "van"
+// console.log(updated); // "vanilla"
+// console.log(browserType); // "mozilla"
+
+let browserTypeG = "mozilla"; //reassigning the "browserTypeZ" variable
+browserTypeG = browserTypeG.replace("moz", "van");
+console.log(browserTypeG); // "mozilla"
+
+//To change all the character of a string
+let quote = "To be or not to be";
+quote = quote.replaceAll("be", "code"); //To change all "be" to "code"
+console.log(quote); // "To code or not to code"
+
+const food =
+  "We are all eating pizza and no one will leave without eating pizza";
+const food2 = food.replaceAll("pizza", "sushi");
+console.log(food2); // "We are all eating sushi and no one will leave without eating sushi
+
+const list = document.querySelector(".output ul");
+list.textContent = "";
+const greetings = [
+  "Happy Birthday!",
+  "Merry Christmas my love",
+  "A happy Christmas to all the family",
+  "You're all I want for Christmas",
+  "Get well soon",
+];
+
+for (const greeting of greetings) {
+  const christmasGreeting = greetings.slice(1, 4);
+
+  if (greetings.includes("Chirstmas")) {
+    list.innerHTML += `<li>${christmasGreeting}</li>`;
+  }
+
+  console.log(christmasGreeting); // Merry Christmas my love, A happy Christmas to all
+
+  if (greeting) {
+    const listItem = document.createElement("li");
+    listItem.textContent = greeting;
+    list.appendChild(listItem);
+  }
+}
+
+const list = document.querySelector(".output ul");
+list.textContent = "";
+const cities = ["lonDon", "ManCHESTer", "BiRmiNGHAM", "liVERpoOL"];
+
+for (const city of cities) {
+  const lowerCaseCity = city.toLowerCase();
+  const firstLetter = lowerCaseCity.slice(0, 1);
+  const newLetter = lowerCaseCity.replace(
+    firstLetter,
+    firstLetter.toUpperCase(0)
+  );
+  const result = newLetter;
+
+  const listItem = document.createElement("li");
+  listItem.textContent = result;
+  list.appendChild(listItem);
+}
+
+const list = document.querySelector(".output ul");
+list.textContent = "";
+const stations = [
+  "MAN675847583748sjt567654;Manchester Piccadilly",
+  "GNF576746573fhdg4737dh4;Greenfield",
+  "LIV5hg65hd737456236dch46dg4;Liverpool Lime Street",
+  "SYB4f65hf75f736463;Stalybridge",
+  "HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield",
+];
+
+for (const station of stations) {
+  const stationCode = stations.slice(0, 3);
+  const stationName = stations.slice(25); // stations.indexOf(";")
+  const newName = stationCode + `${":"}` + " " + stationName; // stations.slice(stationName + 1)
+  const result = newName; //`${stationCode}: ${stationName}`;
+
+  const listItem = document.createElement("li");
+  listItem.textContent = result;
+  list.appendChild(listItem);
+}
