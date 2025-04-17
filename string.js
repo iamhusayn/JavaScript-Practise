@@ -118,11 +118,11 @@ if (browserTypeC.endsWith("a")) {
 //To find the position of a substring in a string
 const tagline = "MDN - Resources for developers, by developers";
 
-const firstOccurrence = tagline.indexOf("developers");
-const secondOccurrence = tagline.indexOf("developers", firstOccurrence + 1);
+const firstOccurrence = tagline.indexOf("developers"); //returns the index of the first occurrence of the substring which is 20
+const secondOccurrence = tagline.indexOf("developers", firstOccurrence + 1); //returns the index of the second occurrence of the substring which is 44
 
-console.log(firstOccurrence);
-console.log(secondOccurrence);
+console.log(firstOccurrence); //prints 20
+console.log(secondOccurrence); //prints 44
 
 //Extracting a substring from a string
 const taglineA = "MDN - Resources for developers, by developers";
