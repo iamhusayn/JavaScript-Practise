@@ -9,6 +9,7 @@ const shopping = [
   `${sequence}`,
 ];
 const random = ["tree", 795, [0, 1, 2]]; //A multidimensional array is an array that contains another array
+console.log(shopping); //returns all items inluding items in the sequence variable
 console.log(random.length);
 console.log(shopping[5].length);
 
@@ -72,7 +73,49 @@ const students = ["Yemi", "Farida", "Tinuola", "Badeji"];
 const index = students.indexOf("Tinuola");
 if (index !== -1) {
   students.splice(index, 1);
-}
+} //if the index is within the array, start from index "Tinuola", remove 1 item (Tinuola).
 console.log(students); //returns ['Yemi', 'Farida', 'Badeji']
 console.log(index); //returns 2 - Tinuola
-students.splice(2, 1); //removes the item at index 2 and remove only 1 item
+students.splice(2, 1, "Shade"); //removes the item at index 2 and remove only 1 item and add "Shade"
+
+//Removing an item with a known index from an array
+const busStop = ["Idumota", "Allen", "Oshodi", "Ikeja", "Ojota"];
+const busStopIndex = busStop.indexOf("Ikeja");
+if (busStopIndex !== -1) {
+  busStop.splice(busStopIndex, 2, "Iyana-ipaja");
+} //if the index is within the array, start from busStopIndex "Ikeja", remove 2 items (Ikeja and Ojota), then replace/add "Iyana-ipaja".
+console.log(busStop); //returns ['Idumota', 'Allen', 'Oshodi', 'Iyana-ipaja']
+
+//ACCESSING EVERY ITEMS IN AN ARRAY
+//Accessing the first item in an array
+const universities = [
+  "Unilag",
+  "Uniben",
+  "Unilorin",
+  "OAU",
+  "UNIPORT",
+  "UNICAL",
+];
+const universityColor = ["Green", "Blue", "Yellow", "Orange", "Brown", "Pink"];
+console.log(universities[0]); //returns Unilag
+
+//Accessing the every item in an array
+for (const university of universities) {
+  console.log(universities);
+} //returns Unilag, Uniben, Unilorin, OAU, UNIPORT, UNICAL 6-times
+
+//If you want each item to give you a different output, you should use the map() method.
+function getUniversityColor(universities) {
+  // return universities.replace(universities, universityColor);
+  return universities.map((university, index) => universityColor[index]);
+}
+
+for (const university of universities) {
+  function getUniversityColor(universities) {
+    return universities.map((university, index) => universityColor[index]);
+    // return universities.replace(universities, universityColor);
+  }
+}
+const getUniversities = universities;
+const universityColors = getUniversities.map(getUniversityColor);
+console.log(universityColors);
